@@ -1,5 +1,7 @@
 export const load = async ({ params }) => {
+	const membershipId = params.id;
+
 	return {
-		page: params.page
+		membershipId
 	};
 };

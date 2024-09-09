@@ -6,7 +6,10 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: azure()
+		adapter: azure(),
+		alias: {
+			$components: 'src/lib/components'
+		}
 	}
 };
 
