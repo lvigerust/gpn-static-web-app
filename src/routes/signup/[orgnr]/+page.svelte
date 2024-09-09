@@ -18,6 +18,7 @@
 			<FieldErrors />
 		</Field>
 	</div>
+
 	<div class="col-span-6">
 		<Field {form} name="organizationName">
 			<Control let:attrs>
@@ -27,6 +28,7 @@
 			<FieldErrors />
 		</Field>
 	</div>
+
 	<div class="col-span-6">
 		<Field {form} name="organizationEmail">
 			<Control let:attrs>
@@ -58,6 +60,7 @@
 			<FieldErrors />
 		</Field>
 	</div>
+
 	<div class="col-span-6 row-start-4">
 		<Field {form} name="contactLastName">
 			<Control let:attrs>
@@ -72,6 +75,7 @@
 			<FieldErrors />
 		</Field>
 	</div>
+
 	<div class="col-span-6 row-start-5">
 		<Field {form} name="contactEmail">
 			<Control let:attrs>
@@ -86,6 +90,7 @@
 			<FieldErrors />
 		</Field>
 	</div>
+
 	<div class="col-span-6 row-start-5">
 		<Field {form} name="contactMobile">
 			<Control let:attrs>
@@ -105,7 +110,7 @@
 		<button
 			type="submit"
 			class="w-full rounded-md bg-zinc-950 py-1.5 text-center font-semibold text-white"
-			>Signer</button
+			>Signer avtale</button
 		>
 	</div>
 </form>

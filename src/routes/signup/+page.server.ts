@@ -8,7 +8,7 @@ const searchBrregSchema = z.object({
 	query: z.string().min(1, 'Vennligst skriv inn et organisasjonsnummer eller navn')
 })
 
-type Message = { result: Enhet | Enhet[] }
+type Message = { result: Enhet | Enhet[] | null }
 
 export const load = async () => {
 	const form = await superValidate<Infer<typeof searchBrregSchema>, Message>(zod(searchBrregSchema))
@@ -27,6 +27,7 @@ export const actions = {
 
 		if (!form.valid) return fail(400, { form })
 
+		// Check if query is a organization number
 		if (/^\d{9}$/.test(form.data.query)) {
 			const brregResponse = await fetch(
 				`https://data.brreg.no/enhetsregisteret/api/enheter/${form.data.query}`
@@ -49,6 +50,10 @@ export const actions = {
 			}
 
 			const data = await brregResponse.json()
+
+			if (!data._embedded) {
+				return message(form, { result: null })
+			}
 
 			return message(form, { result: data._embedded.enheter })
 		}
