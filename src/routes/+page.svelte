@@ -1,30 +1,34 @@
-<h1 class="text-3xl font-bold tracking-tight">Hello from Azure Static Web Apps</h1>
+<script lang="ts">
+	import { goto } from '$app/navigation'
+	import { onMount } from 'svelte'
 
-<form action="?/redirect" method="post" class="mt-12 max-w-sm">
-	<label>
-		<div>
-			<label>
-				<span class="block text-sm font-medium leading-6 text-gray-900"
-					>Gå til dynamisk medlemskap</span
-				>
+	let countdown: number = 5
+	let intervalId: number
 
-				<div class="relative mt-2 rounded-md shadow-sm">
-					<input
-						type="text"
-						name="pathname"
-						class="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-						placeholder="hva som helst"
-						required
-					/>
-					<div class="absolute inset-y-0 right-0 flex items-center">
-						<button
-							type="submit"
-							class="h-full rounded-md border-0 bg-transparent px-4 py-0 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-							>→</button
-						>
-					</div>
-				</div>
-			</label>
-		</div>
-	</label>
-</form>
+	onMount(() => {
+		intervalId = setInterval(() => {
+			if (countdown > 1) {
+				countdown--
+			} else {
+				clearInterval(intervalId)
+				goto('/signup')
+			}
+		}, 1000)
+
+		return () => {
+			clearInterval(intervalId)
+		}
+	})
+</script>
+
+<div class="flex flex-col items-center gap-y-8">
+	<h1 class="text-4xl font-semibold tracking-tight">
+		Fant ingen medlemskap, videresender om… {countdown}
+	</h1>
+
+	<a
+		href="/signup"
+		class="inline-flex min-w-36 justify-center rounded-md bg-zinc-950 px-4 py-1.5 text-base/7 font-semibold text-white"
+		>Fortsett nå</a
+	>
+</div>
