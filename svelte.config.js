@@ -1,5 +1,5 @@
-import azure from 'svelte-adapter-azure-swa';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import azure from 'svelte-adapter-azure-swa'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,6 +11,6 @@ const config = {
 			$components: 'src/lib/components'
 		}
 	}
-};
+}
 
-export default config;
+export default config

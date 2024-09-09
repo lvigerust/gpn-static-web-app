@@ -1,5 +1,5 @@
-import type { Config } from 'tailwindcss';
-import tailwindforms from '@tailwindcss/forms';
+import type { Config } from 'tailwindcss'
+import tailwindforms from '@tailwindcss/forms'
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -9,4 +9,4 @@ export default {
 	},
 
 	plugins: [tailwindforms]
-} as Config;
+} as Config

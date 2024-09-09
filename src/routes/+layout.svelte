@@ -1,10 +1,10 @@
 <script lang="ts">
-	import '../app.css';
-	import { Navbar } from '$components';
+	import '../app.css'
+	import { Header } from '$components'
 </script>
 
-<Navbar />
+<Header />
 
-<main class="container mx-auto">
+<main class="container mx-auto py-24">
 	<slot />
 </main>
