@@ -7,3 +7,15 @@
 		@apply antialiased;
 	}
 }
+
+@layer components {
+	[data-fs-label] {
+		@apply mb-2 block font-medium;
+	}
+	[data-fs-control] {
+		@apply block w-full rounded-md border border-zinc-950/10 px-3 py-1.5 shadow focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-blue-500 disabled:cursor-not-allowed;
+	}
+	[data-fs-field-errors] {
+		@apply mt-2 text-red-500;
+	}
+}

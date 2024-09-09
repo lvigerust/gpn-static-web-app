@@ -28,8 +28,6 @@ export const actions = {
 		if (!form.valid) return fail(400, { form })
 
 		if (/^\d{9}$/.test(form.data.query)) {
-			console.log('Searching for org number')
-
 			const brregResponse = await fetch(
 				`https://data.brreg.no/enhetsregisteret/api/enheter/${form.data.query}`
 			)
