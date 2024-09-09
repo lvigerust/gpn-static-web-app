@@ -8,7 +8,7 @@
 
 @layer base {
 	body {
-		@apply scroll-smooth antialiased;
+		@apply scroll-smooth text-zinc-950 antialiased;
 	}
 }
 
@@ -17,7 +17,7 @@
 		@apply mb-2 block font-medium;
 	}
 	[data-fs-control] {
-		@apply block w-full rounded-md border border-zinc-950/10 px-3 py-1.5 shadow focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-blue-500 disabled:cursor-not-allowed;
+		@apply block w-full rounded-md border-0 px-4 py-2 text-zinc-950 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-zinc-50 disabled:text-zinc-950/75;
 	}
 	[data-fs-field-errors] {
 		@apply mt-2 text-red-500;

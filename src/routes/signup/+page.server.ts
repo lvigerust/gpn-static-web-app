@@ -11,10 +11,8 @@ const searchBrregSchema = z.object({
 type Message = { result: Enhet | Enhet[] | null }
 
 export const load = async () => {
-	const form = await superValidate<Infer<typeof searchBrregSchema>, Message>(zod(searchBrregSchema))
-
 	return {
-		form
+		form: await superValidate<Infer<typeof searchBrregSchema>, Message>(zod(searchBrregSchema))
 	}
 }
 

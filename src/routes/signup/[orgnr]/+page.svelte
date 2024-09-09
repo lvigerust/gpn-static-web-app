@@ -1,10 +1,14 @@
 <script lang="ts">
+	import { agreementDetailsSchema } from '$lib/schema.js'
 	import { Control, Field, FieldErrors, Label } from 'formsnap'
 	import { superForm } from 'sveltekit-superforms'
+	import { zod } from 'sveltekit-superforms/adapters'
 
 	export let data
 
-	const form = superForm(data.form)
+	const form = superForm(data.form, {
+		validators: zod(agreementDetailsSchema)
+	})
 	const { form: formData, enhance } = form
 </script>
 
@@ -13,7 +17,7 @@
 		<Field {form} name="organizationNumber">
 			<Control let:attrs>
 				<Label>Organisasjonsnummer</Label>
-				<input {...attrs} type="text" bind:value={$formData.organizationNumber} />
+				<input {...attrs} type="text" disabled bind:value={$formData.organizationNumber} />
 			</Control>
 			<FieldErrors />
 		</Field>
@@ -23,7 +27,7 @@
 		<Field {form} name="organizationName">
 			<Control let:attrs>
 				<Label>Organisasjonsnavn</Label>
-				<input {...attrs} type="text" bind:value={$formData.organizationName} />
+				<input {...attrs} type="text" disabled bind:value={$formData.organizationName} />
 			</Control>
 			<FieldErrors />
 		</Field>
