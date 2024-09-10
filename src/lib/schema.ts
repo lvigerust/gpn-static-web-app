@@ -20,3 +20,8 @@ export const membershipPaymentDetails = z.object({
 	billingStreetAddress: z.string().min(2, 'Gateadresse er påkrevd'),
 	billingPostalCode: z.string().length(4, 'Postnummeret må være 4 siffer')
 })
+
+export const loginSchema = z.object({
+	username: z.string(),
+	password: z.string()
+})
