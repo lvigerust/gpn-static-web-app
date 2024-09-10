@@ -5,6 +5,7 @@
 	import { Icon, MagnifyingGlass } from 'svelte-hero-icons'
 
 	export let data
+
 	const form = superForm(data.form)
 	const { form: formData, enhance, message } = form
 </script>
