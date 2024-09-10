@@ -17,6 +17,7 @@
 		<Field {form} name="organizationNumber">
 			<Control let:attrs>
 				<Label>Organisasjonsnummer</Label>
+				<input type="hidden" name="organizationNumber" bind:value={$formData.organizationNumber} />
 				<input {...attrs} type="text" disabled bind:value={$formData.organizationNumber} />
 			</Control>
 			<FieldErrors />
@@ -27,6 +28,7 @@
 		<Field {form} name="organizationName">
 			<Control let:attrs>
 				<Label>Organisasjonsnavn</Label>
+				<input type="hidden" name="organizationName" bind:value={$formData.organizationName} />
 				<input {...attrs} type="text" disabled bind:value={$formData.organizationName} />
 			</Control>
 			<FieldErrors />
@@ -98,7 +100,7 @@
 	<div class="col-span-6 row-start-5">
 		<Field {form} name="contactMobile">
 			<Control let:attrs>
-				<Label>Mobil</Label>
+				<Label>Telefonnummer</Label>
 				<input
 					{...attrs}
 					type="text"

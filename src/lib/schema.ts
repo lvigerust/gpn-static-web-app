@@ -11,3 +11,15 @@ export const agreementDetailsSchema = z.object({
 	successRedirectUrl: z.string(),
 	rejectRedirectUrl: z.string()
 })
+
+export const membershipPaymentDetails = z.object({
+	cardholderName: z.string(),
+	cardNumber: z.string().length(16, 'Kortnummeret må være 16 siffer'),
+	expiryDate: z.string().length(5, 'Utløpsdatoen må være på formatet MM/ÅÅ'),
+	cvc: z.string().length(3, 'CVC må være 3 siffer'),
+	billingStreetAddress: z.string().min(2, 'Gateadresse er påkrevd'),
+	billingPostalCode: z.string().length(4, 'Postnummeret må være 4 siffer'),
+})
+
+
+

@@ -1,6 +1,6 @@
 import { agreementDetailsSchema } from '$lib/schema.js'
 import type { Enhet } from '$lib/types.js'
-import { error } from '@sveltejs/kit'
+import { error, redirect } from '@sveltejs/kit'
 import { fail, superValidate } from 'sveltekit-superforms'
 import { zod } from 'sveltekit-superforms/adapters'
 
@@ -29,6 +29,12 @@ export const actions = {
 	default: async ({ request }) => {
 		const form = await superValidate(request, zod(agreementDetailsSchema))
 
+		console.log(form)
+
 		if (!form.valid) return fail(400, { form })
+
+		console.log(form)
+
+		redirect(303, '/signup/payment')
 	}
 }
