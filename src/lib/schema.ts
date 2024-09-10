@@ -13,13 +13,10 @@ export const agreementDetailsSchema = z.object({
 })
 
 export const membershipPaymentDetails = z.object({
-	cardholderName: z.string(),
+	cardholderName: z.string().min(2, 'Kortholders navn er påkrevd'),
 	cardNumber: z.string().length(16, 'Kortnummeret må være 16 siffer'),
-	expiryDate: z.string().length(5, 'Utløpsdatoen må være på formatet MM/ÅÅ'),
+	expiryDate: z.string().regex(/^\d{2}\/\d{2}$/, 'Utløpsdatoen må være på formatet MM/ÅÅ'),
 	cvc: z.string().length(3, 'CVC må være 3 siffer'),
 	billingStreetAddress: z.string().min(2, 'Gateadresse er påkrevd'),
-	billingPostalCode: z.string().length(4, 'Postnummeret må være 4 siffer'),
+	billingPostalCode: z.string().length(4, 'Postnummeret må være 4 siffer')
 })
-
-
-

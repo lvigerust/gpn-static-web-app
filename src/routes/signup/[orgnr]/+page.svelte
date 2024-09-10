@@ -17,7 +17,12 @@
 		<Field {form} name="organizationNumber">
 			<Control let:attrs>
 				<Label>Organisasjonsnummer</Label>
-				<input type="hidden" name="organizationNumber" bind:value={$formData.organizationNumber} />
+				<input
+					type="hidden"
+					name="organizationNumber"
+					aria-required="true"
+					bind:value={$formData.organizationNumber}
+				/>
 				<input {...attrs} type="text" disabled bind:value={$formData.organizationNumber} />
 			</Control>
 			<FieldErrors />
@@ -28,7 +33,12 @@
 		<Field {form} name="organizationName">
 			<Control let:attrs>
 				<Label>Organisasjonsnavn</Label>
-				<input type="hidden" name="organizationName" bind:value={$formData.organizationName} />
+				<input
+					type="hidden"
+					name="organizationName"
+					aria-required="true"
+					bind:value={$formData.organizationName}
+				/>
 				<input {...attrs} type="text" disabled bind:value={$formData.organizationName} />
 			</Control>
 			<FieldErrors />
@@ -43,6 +53,7 @@
 					{...attrs}
 					type="email"
 					placeholder="E-post til bedrift"
+					autocomplete="email"
 					bind:value={$formData.organizationEmail}
 				/>
 			</Control>
@@ -60,6 +71,7 @@
 					{...attrs}
 					type="text"
 					placeholder="Ditt fornavn"
+					autocomplete="given-name"
 					bind:value={$formData.contactFirstName}
 				/>
 			</Control>
@@ -75,6 +87,7 @@
 					{...attrs}
 					type="text"
 					placeholder="Ditt etternavn"
+					autocomplete="family-name"
 					bind:value={$formData.contactLastName}
 				/>
 			</Control>
@@ -90,6 +103,7 @@
 					{...attrs}
 					type="email"
 					placeholder="Din e-post"
+					autocomplete="email"
 					bind:value={$formData.contactEmail}
 				/>
 			</Control>
@@ -105,6 +119,7 @@
 					{...attrs}
 					type="text"
 					placeholder="Ditt telefonnummer"
+					autocomplete="tel"
 					bind:value={$formData.contactMobile}
 				/>
 			</Control>
@@ -112,10 +127,13 @@
 		</Field>
 	</div>
 
-	<div class="col-span-3 col-start-10 row-start-6 mt-4">
+	<div class="col-span-full mt-4 flex justify-between">
+		<a href="/signup" class="inline-block rounded-md px-4 py-1.5 text-center font-semibold"
+			>Tilbake</a
+		>
 		<button
 			type="submit"
-			class="w-full rounded-md bg-zinc-950 py-1.5 text-center font-semibold text-white"
+			class="rounded-md bg-zinc-950 px-4 py-1.5 text-center font-semibold text-white"
 			>Signer avtale</button
 		>
 	</div>
