@@ -6,9 +6,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: azure({
-			apiDir: 'custom/api'
-		}),
+		adapter: azure(),
 		alias: {
 			$components: 'src/lib/components'
 		}

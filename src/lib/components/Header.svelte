@@ -18,7 +18,7 @@
 
 		<div class="flex items-center justify-end">
 			{#if user}
-				<a href="/api/auth/logout">Logg ut</a>
+				<a href="/custom/api/auth/logout">Logg ut</a>
 			{:else}
 				<a href="/login">Logg inn</a>
 			{/if}
